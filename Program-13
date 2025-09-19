@@ -1,0 +1,13 @@
+Remove fullstops from a string: Given a string with alphanumeric characters and fullstops, write a program to remove the fullstops from the string.
+
+public class RemoveFullStops {
+    public static String removeFullStops(String str) {
+        return str.replace(".", "");
+    }
+    public static void main(String[] args) {
+        String input = "Hello.World.This.Is.Java";
+        System.out.println("Original String: " + input);
+        String result = removeFullStops(input);
+        System.out.println("String without full stops: " + result);
+    }
+}

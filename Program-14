@@ -1,0 +1,37 @@
+4) Maximum odd-even sum of a linked list: Given a linkedlist, find the maximum sum sum of pairs of alternate elements.
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+public class MaxOddEvenSumSimple {
+    public static int maxAlternatePairSum(ListNode head) {
+        if (head == null || head.next == null) {
+            return 0; 
+        }
+        int maxSum = Integer.MIN_VALUE;
+        ListNode temp = head;
+        while (temp != null && temp.next != null && temp.next.next != null) {
+            int sum = temp.val + temp.next.next.val;
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+            temp = temp.next; 
+        }
+        return maxSum;
+    }
+    public static void main(String[] args) {
+        ListNode head = new ListNode(5);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(2);
+        head.next.next.next = new ListNode(9);
+        head.next.next.next.next = new ListNode(3);
+        head.next.next.next.next.next = new ListNode(7);
+        int result = maxAlternatePairSum(head);
+        System.out.println("Maximum alternate pair sum = " + result);
+    }
+}
